@@ -12,7 +12,7 @@ import java.util.List;
 public class KpiServiceImpl implements KpiService {
     @Autowired
     KPIDao kpiDao;
-    
+
     //登录
     @Override
     public boolean validateAccount(String phone, String password) {
@@ -20,36 +20,88 @@ public class KpiServiceImpl implements KpiService {
         kpi.setPhone(phone);
         kpi.setPassword(password);
         List<KPI> kpis = kpiDao.findByUsernamePassword(kpi);
-        if(kpis.isEmpty()){
+        if (kpis.isEmpty()) {
             return false;
-        }
-        else {
+        } else {
             return true;
         }
-
     }
 
     //获取权限
     @Override
-    public String validateRoot(String phone){
+    public String validateRoot(String phone) {
         String root = kpiDao.finByPhoneRoot(phone);
-        if(root.isEmpty()){
+        if (root.isEmpty()) {
             return "false";
-        }
-        else {
+        } else {
             return root;
         }
     }
-    
+
     //获取用户信息
     @Override
-    public List<KPI> showUser(String phone){
+    public List<KPI> showUser(String phone) {
         List<KPI> kpis = kpiDao.findUserByPhone(phone);
-        if (kpis== null){
+        if (kpis == null) {
             return null;
-        }else{
+        } else {
             return kpis;
         }
+    }
 
+    //获取指标库
+    @Override
+    public List<KPI> showKpiindex() {
+
+        List<KPI> kpis = kpiDao.findKpiAll();
+        if (kpis == null) {
+            return null;
+        }else {
+            return kpis;
+       }
+    }
+
+    //获取id
+    @Override
+    public Integer getId(String phone) {
+        Integer id = kpiDao.findIdByPhone(phone);
+        if (id == null) {
+            return null;
+        } else {
+            return id;
+        }
+    }
+
+    //获取上司kpi
+    @Override
+    public List<KPI> showSkpi(Integer id){
+        List<KPI> kpis = kpiDao.findSkpiById(id);
+        if (kpis == null) {
+            return null;
+        }else {
+            return kpis;
+        }
+    }
+
+    //获取员工kpi
+    @Override
+    public List<KPI> showKpi(Integer id) {
+        List<KPI> kpis = kpiDao.findKpiById(id);
+        if (kpis == null) {
+            return null;
+        }else {
+            return kpis;
+        }
+    }
+
+    //获取名字
+    @Override
+    public String getName(String phone) {
+        String name = kpiDao.findNameByPhone(phone);
+        if (name == null) {
+            return null;
+        } else {
+            return name;
+        }
     }
 }
