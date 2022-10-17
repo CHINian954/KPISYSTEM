@@ -50,4 +50,6 @@ public interface KPIDao {
     //通过号码查找确认标识
     @Select("SELECT confirm from staffinfo where phone=#{phone}")
     public Integer findConfirmByphone(String phone);
+
+    //
 }

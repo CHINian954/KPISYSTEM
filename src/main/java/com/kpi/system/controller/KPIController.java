@@ -86,7 +86,7 @@ public class KPIController {
     }
 
     @ApiOperation("员工申诉")
-    @GetMapping("/sendAppeal")
+    @PostMapping("/sendAppeal")
     public Object sendAppeal (String phone, String petition){
         Integer id = kpiService.getId(phone);
         Integer petitions = kpiService.updatePetition(id,petition);
