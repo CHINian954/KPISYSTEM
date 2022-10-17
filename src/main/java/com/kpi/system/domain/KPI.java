@@ -18,26 +18,16 @@ public class KPI {
     private String kpi;
     private Integer number;
     private String petition;
-    private Integer skpi1;
-    private Integer skpi2;
-    private Integer skpi3;
-    private Integer skpi4;
-    private Integer skpi5;
-    private Integer skpi6;
-    private Integer skpi7;
-    private Integer skpi8;
-    private Integer skpi9;
-    private Integer skpi10;
-    private Integer kpi1;
-    private Integer kpi2;
-    private Integer kpi3;
-    private Integer kpi4;
-    private Integer kpi5;
-    private Integer kpi6;
-    private Integer kpi7;
-    private Integer kpi8;
-    private Integer kpi9;
-    private Integer kpi10;
+    private Integer A;
+    private Integer B;
+    private Integer C;
+    private Integer D;
+    private Integer E;
+    private Integer F;
+    private Integer G;
+    private Integer H;
+    private Integer I;
+    private Integer J;
 
     @Override
     public String toString() {
@@ -58,26 +48,16 @@ public class KPI {
                 ", kpi='" + kpi + '\'' +
                 ", number=" + number +
                 ", petition='" + petition + '\'' +
-                ", skpi1=" + skpi1 +
-                ", skpi2=" + skpi2 +
-                ", skpi3=" + skpi3 +
-                ", skpi4=" + skpi4 +
-                ", skpi5=" + skpi5 +
-                ", skpi6=" + skpi6 +
-                ", skpi7=" + skpi7 +
-                ", skpi8=" + skpi8 +
-                ", skpi9=" + skpi9 +
-                ", skpi10=" + skpi10 +
-                ", kpi1=" + kpi1 +
-                ", kpi2=" + kpi2 +
-                ", kpi3=" + kpi3 +
-                ", kpi4=" + kpi4 +
-                ", kpi5=" + kpi5 +
-                ", kpi6=" + kpi6 +
-                ", kpi7=" + kpi7 +
-                ", kpi8=" + kpi8 +
-                ", kpi9=" + kpi9 +
-                ", kpi10=" + kpi10 +
+                ", A=" + A +
+                ", B=" + B +
+                ", C=" + C +
+                ", D=" + D +
+                ", E=" + E +
+                ", F=" + F +
+                ", G=" + G +
+                ", H=" + H +
+                ", I=" + I +
+                ", J=" + J +
                 '}';
     }
 
@@ -209,163 +189,83 @@ public class KPI {
         this.petition = petition;
     }
 
-    public Integer getSkpi1() {
-        return skpi1;
+    public Integer getA() {
+        return A;
     }
 
-    public void setSkpi1(Integer skpi1) {
-        this.skpi1 = skpi1;
+    public void setA(Integer a) {
+        A = a;
     }
 
-    public Integer getSkpi2() {
-        return skpi2;
+    public Integer getB() {
+        return B;
     }
 
-    public void setSkpi2(Integer skpi2) {
-        this.skpi2 = skpi2;
+    public void setB(Integer b) {
+        B = b;
     }
 
-    public Integer getSkpi3() {
-        return skpi3;
+    public Integer getC() {
+        return C;
     }
 
-    public void setSkpi3(Integer skpi3) {
-        this.skpi3 = skpi3;
+    public void setC(Integer c) {
+        C = c;
     }
 
-    public Integer getSkpi4() {
-        return skpi4;
+    public Integer getD() {
+        return D;
     }
 
-    public void setSkpi4(Integer skpi4) {
-        this.skpi4 = skpi4;
+    public void setD(Integer d) {
+        D = d;
     }
 
-    public Integer getSkpi5() {
-        return skpi5;
+    public Integer getE() {
+        return E;
     }
 
-    public void setSkpi5(Integer skpi5) {
-        this.skpi5 = skpi5;
+    public void setE(Integer e) {
+        E = e;
     }
 
-    public Integer getSkpi6() {
-        return skpi6;
+    public Integer getF() {
+        return F;
     }
 
-    public void setSkpi6(Integer skpi6) {
-        this.skpi6 = skpi6;
+    public void setF(Integer f) {
+        F = f;
     }
 
-    public Integer getSkpi7() {
-        return skpi7;
+    public Integer getG() {
+        return G;
     }
 
-    public void setSkpi7(Integer skpi7) {
-        this.skpi7 = skpi7;
+    public void setG(Integer g) {
+        G = g;
     }
 
-    public Integer getSkpi8() {
-        return skpi8;
+    public Integer getH() {
+        return H;
     }
 
-    public void setSkpi8(Integer skpi8) {
-        this.skpi8 = skpi8;
+    public void setH(Integer h) {
+        H = h;
     }
 
-    public Integer getSkpi9() {
-        return skpi9;
+    public Integer getI() {
+        return I;
     }
 
-    public void setSkpi9(Integer skpi9) {
-        this.skpi9 = skpi9;
+    public void setI(Integer i) {
+        I = i;
     }
 
-    public Integer getSkpi10() {
-        return skpi10;
+    public Integer getJ() {
+        return J;
     }
 
-    public void setSkpi10(Integer skpi10) {
-        this.skpi10 = skpi10;
-    }
-
-    public Integer getKpi1() {
-        return kpi1;
-    }
-
-    public void setKpi1(Integer kpi1) {
-        this.kpi1 = kpi1;
-    }
-
-    public Integer getKpi2() {
-        return kpi2;
-    }
-
-    public void setKpi2(Integer kpi2) {
-        this.kpi2 = kpi2;
-    }
-
-    public Integer getKpi3() {
-        return kpi3;
-    }
-
-    public void setKpi3(Integer kpi3) {
-        this.kpi3 = kpi3;
-    }
-
-    public Integer getKpi4() {
-        return kpi4;
-    }
-
-    public void setKpi4(Integer kpi4) {
-        this.kpi4 = kpi4;
-    }
-
-    public Integer getKpi5() {
-        return kpi5;
-    }
-
-    public void setKpi5(Integer kpi5) {
-        this.kpi5 = kpi5;
-    }
-
-    public Integer getKpi6() {
-        return kpi6;
-    }
-
-    public void setKpi6(Integer kpi6) {
-        this.kpi6 = kpi6;
-    }
-
-    public Integer getKpi7() {
-        return kpi7;
-    }
-
-    public void setKpi7(Integer kpi7) {
-        this.kpi7 = kpi7;
-    }
-
-    public Integer getKpi8() {
-        return kpi8;
-    }
-
-    public void setKpi8(Integer kpi8) {
-        this.kpi8 = kpi8;
-    }
-
-    public Integer getKpi9() {
-        return kpi9;
-    }
-
-    public void setKpi9(Integer kpi9) {
-        this.kpi9 = kpi9;
-    }
-
-    public Integer getKpi10() {
-        return kpi10;
-    }
-
-    public void setKpi10(Integer kpi10) {
-        this.kpi10 = kpi10;
+    public void setJ(Integer j) {
+        J = j;
     }
 }

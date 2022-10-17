@@ -63,16 +63,21 @@ public class KPIController {
     @ApiOperation("上司kpi")
     @GetMapping("/getKPI")
     public Object getKPI(String phone) {
+        List<KPI> kpiindex = kpiService.showKpiindex();
         Integer id = kpiService.getId(phone);
         String name = kpiService.getName(phone);
+        Integer mark = kpiService.getConfirm(phone);
         List<KPI> kpis = kpiService.showSkpi(id);
         JSONObject jsonObject = new JSONObject();
         JSONArray list = JSONObject.parseArray(JSON.toJSONString(kpis));
+        JSONArray kpiindexs = JSONObject.parseArray(JSON.toJSONString(kpiindex));
         if (kpis != null && id != null && name != null) {
             jsonObject.put("msg", "获取成功");
             jsonObject.put("code", 200);
-            jsonObject.put("KPI", list);
+            jsonObject.put("score", list);
+            jsonObject.put("names",kpiindexs);
             jsonObject.put("name", name);
+            jsonObject.put("mark",mark);
         } else {
             jsonObject.put("msg", "获取失败");
             jsonObject.put("code", 500);

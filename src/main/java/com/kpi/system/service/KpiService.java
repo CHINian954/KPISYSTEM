@@ -23,5 +23,7 @@ public interface KpiService {
     public String getName(String phone);
     //提交申诉
     public Integer updatePetition(Integer id, String petition);
+    //查找确认
+    public  Integer getConfirm(String phone);
 
 }

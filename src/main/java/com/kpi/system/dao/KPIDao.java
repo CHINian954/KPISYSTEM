@@ -24,7 +24,7 @@ public interface KPIDao {
     public List<KPI> findUserByPhone(String phone);
 
     //查找kpi指标库
-    @Select("SELECT kpi FROM kpiindex")
+    @Select("SELECT kpi from kpiindex ORDER BY number")
     public List<KPI> findKpiAll();
 
     //通过phone查找id
@@ -32,11 +32,11 @@ public interface KPIDao {
     public Integer findIdByPhone(String phone);
 
     //通过id查找上司kpi
-    @Select("SELECT skpi1,skpi2,skpi3,skpi4,skpi5,skpi6,skpi7,skpi8,skpi9,skpi10 FROM kpiscore WHERE id=#{id}")
+    @Select("SELECT A,B,C,D,E,F,G,H,I,J FROM skpiscore WHERE id=#{id}")
     public List<KPI> findSkpiById(Integer id);
 
     //通过id查找员工kpi
-    @Select("SELECT kpi1,kpi2,kpi3,kpi4,kpi5,kpi6,kpi7,kpi8,kpi9,kpi10 FROM kpiscore WHERE id=#{id}")
+    @Select("SELECT A,B,C,D,E,F,G,H,I,J FROM kpiscore WHERE id=#{id}")
     public List<KPI> findKpiById(Integer id);
 
     //通过号码查找名字
@@ -47,4 +47,7 @@ public interface KPIDao {
     @Update("update kpipetition set petition=#{petition} where id=#{id}")
     public Integer updateKpipetition(Integer id, String petition);
 
+    //通过号码查找确认标识
+    @Select("SELECT confirm from staffinfo where phone=#{phone}")
+    public Integer findConfirmByphone(String phone);
 }

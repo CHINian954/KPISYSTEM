@@ -116,4 +116,15 @@ public class KpiServiceImpl implements KpiService {
             return petitions;
         }
     }
+
+    //查找确认
+    @Override
+    public Integer getConfirm(String phone) {
+        Integer confirm = kpiDao.findConfirmByphone(phone);
+        if (confirm == null) {
+            return null;
+        }else {
+            return confirm;
+        }
+    }
 }
