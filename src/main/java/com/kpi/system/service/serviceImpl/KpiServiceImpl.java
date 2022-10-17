@@ -104,4 +104,16 @@ public class KpiServiceImpl implements KpiService {
             return name;
         }
     }
+
+    //提交申请
+    @Override
+    public Integer updatePetition(Integer id, String petition) {
+
+        Integer petitions = kpiDao.updateKpipetition(id,petition);
+        if (petitions == null) {
+            return null;
+        } else {
+            return petitions;
+        }
+    }
 }

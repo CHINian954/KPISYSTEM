@@ -79,4 +79,23 @@ public class KPIController {
         }
         return jsonObject;
     }
+
+    @ApiOperation("员工申诉")
+    @GetMapping("/sendAppeal")
+    public Object sendAppeal (String phone, String petition){
+        Integer id = kpiService.getId(phone);
+        Integer petitions = kpiService.updatePetition(id,petition);
+        JSONObject jsonObject = new JSONObject();
+        if(petitions==0){
+            jsonObject.put("msg","获取失败");
+            jsonObject.put("code",500);
+            jsonObject.put("data",petitions);
+        }else{
+            jsonObject.put("msg","获取成功");
+            jsonObject.put("code",200);
+            jsonObject.put("data",petitions);
+        }
+        return jsonObject;
+    }
+
 }

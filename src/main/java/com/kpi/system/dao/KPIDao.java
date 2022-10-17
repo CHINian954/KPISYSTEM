@@ -3,6 +3,7 @@ package com.kpi.system.dao;
 import com.kpi.system.domain.KPI;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -41,5 +42,9 @@ public interface KPIDao {
     //通过号码查找名字
     @Select("SELECT name FROM staffinfo WHERE phone=#{phone}")
     public String findNameByPhone(String phone);
+
+    //通过id修改申诉
+    @Update("update kpipetition set petition=#{petition} where id=#{id}")
+    public Integer updateKpipetition(Integer id, String petition);
 
 }
