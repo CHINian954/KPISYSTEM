@@ -63,5 +63,14 @@ public interface KPIDao {
     @Update("update kpipetition set result=#{result} where name=#{name}")
     public Integer updateResultByname(String name, String result);
 
+    //通过名字提交反馈
+    @Update("update kpipetition set commit=#{commit} where name=#{name}")
+    public Integer updatecommitByname(String name, Integer commit);
 
+    //确认上司评分
+    @Update("update staffinfo set confirm=#{confirm} where name=#{name}")
+    public Integer updateConfirmByname(String name, Integer confirm);
+
+//    //自评kpi
+//    @Update("update kpiscore set ")
 }

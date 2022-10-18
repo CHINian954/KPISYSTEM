@@ -161,5 +161,25 @@ public class KpiServiceImpl implements KpiService {
         }
     }
 
+    //确认提交
+    @Override
+    public Integer updateCommit(String name, Integer commit) {
+        Integer updateCommit = kpiDao.updatecommitByname(name, commit);
+        if (updateCommit == null) {
+            return null;
+        }else {
+            return updateCommit;
+        }
+    }
+
+    @Override
+    public Integer updateConfirm(String name, Integer confirm) {
+        Integer updateConfirm = kpiDao.updateConfirmByname(name, confirm);
+        if (updateConfirm == null) {
+            return null;
+        }else {
+            return updateConfirm;
+        }
+    }
 
 }

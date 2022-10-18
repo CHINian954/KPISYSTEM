@@ -31,4 +31,8 @@ public interface KpiService {
     public List<KPI> getPetition(Integer id);
     //反馈申诉结果
     public Integer updateResult(String name, String result);
+    //提交结果
+    public Integer updateCommit(String name, Integer commit);
+    //确认kpi
+    public Integer updateConfirm(String name, Integer confirm);
 }

@@ -163,7 +163,40 @@ public class KPIController {
             jsonObject.put("data",results);
         }
         return jsonObject;
+    }
 
+    @ApiOperation("HR提交反馈")
+    @PostMapping("/sendResult")
+    public Object sendResult(String name, Integer commit){
+        Integer results = kpiService.updateCommit(name, commit);
+        JSONObject jsonObject = new JSONObject();
+        if(results==0){
+            jsonObject.put("msg","获取失败");
+            jsonObject.put("code",500);
+            jsonObject.put("data",results);
+        }else{
+            jsonObject.put("msg","获取成功");
+            jsonObject.put("code",200);
+            jsonObject.put("data",results);
+        }
+        return jsonObject;
+    }
+
+    @ApiOperation("确认kpi")
+    @PostMapping("/confirm")
+    public Object confirm(String name, Integer confirm){
+        Integer results = kpiService.updateConfirm(name, confirm);
+        JSONObject jsonObject = new JSONObject();
+        if(results==0){
+            jsonObject.put("msg","获取失败");
+            jsonObject.put("code",500);
+            jsonObject.put("data",results);
+        }else{
+            jsonObject.put("msg","获取成功");
+            jsonObject.put("code",200);
+            jsonObject.put("data",results);
+        }
+        return jsonObject;
     }
 
 
