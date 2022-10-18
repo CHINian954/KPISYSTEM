@@ -172,6 +172,7 @@ public class KpiServiceImpl implements KpiService {
         }
     }
 
+    //确认kpi
     @Override
     public Integer updateConfirm(String name, Integer confirm) {
         Integer updateConfirm = kpiDao.updateConfirmByname(name, confirm);
@@ -182,6 +183,7 @@ public class KpiServiceImpl implements KpiService {
         }
     }
 
+    //自评kpi
     @Override
     public Integer updateKpi(String letter, String score, Integer id) {
         Integer updateKpi = kpiDao.updateScore(letter,score,id);
@@ -191,5 +193,17 @@ public class KpiServiceImpl implements KpiService {
             return updateKpi;
         }
     }
+    //查找反馈
+    @Override
+    public List<KPI> getResultByName(String name) {
+        List<KPI> kpis = kpiDao.findReultByName(name);
+        if (kpis == null) {
+            return null;
+        } else {
+            return kpis;
+        }
+    }
+
+
 
 }

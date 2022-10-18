@@ -37,4 +37,6 @@ public interface KpiService {
     public Integer updateConfirm(String name, Integer confirm);
     //自评kpi
     public Integer updateKpi(String letter, String score, Integer id);
+    //查找反馈
+    public List<KPI> getResultByName(String name);
 }

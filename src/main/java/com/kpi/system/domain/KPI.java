@@ -18,6 +18,8 @@ public class KPI {
     private String kpi;
     private Integer number;
     private String petition;
+    private String result;
+    private String commit;
     private String A;
     private String B;
     private String C;
@@ -28,6 +30,22 @@ public class KPI {
     private String H;
     private String I;
     private String J;
+
+    public String getResult() {
+        return result;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
+    }
+
+    public String getCommit() {
+        return commit;
+    }
+
+    public void setCommit(String commit) {
+        this.commit = commit;
+    }
 
     @Override
     public String toString() {

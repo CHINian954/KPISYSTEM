@@ -74,4 +74,8 @@ public interface KPIDao {
     //自评kpi
     @Update("update kpiscore set ${letter}=#{score} where id=#{id}")
     public Integer updateScore(String letter, String score,Integer id);
+
+    //查找反馈
+    @Select("select name,petition,result from kpipetition where name=#{name}")
+    public List<KPI> findReultByName(String name);
 }
