@@ -182,4 +182,14 @@ public class KpiServiceImpl implements KpiService {
         }
     }
 
+    @Override
+    public Integer updateKpi(String letter, String score, Integer id) {
+        Integer updateKpi = kpiDao.updateScore(letter,score,id);
+        if (updateKpi == null) {
+            return null;
+        }else {
+            return updateKpi;
+        }
+    }
+
 }

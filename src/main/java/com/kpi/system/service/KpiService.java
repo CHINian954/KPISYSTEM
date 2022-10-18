@@ -35,4 +35,6 @@ public interface KpiService {
     public Integer updateCommit(String name, Integer commit);
     //确认kpi
     public Integer updateConfirm(String name, Integer confirm);
+    //自评kpi
+    public Integer updateKpi(String letter, String score, Integer id);
 }

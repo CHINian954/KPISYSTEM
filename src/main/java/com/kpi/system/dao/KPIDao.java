@@ -71,6 +71,7 @@ public interface KPIDao {
     @Update("update staffinfo set confirm=#{confirm} where name=#{name}")
     public Integer updateConfirmByname(String name, Integer confirm);
 
-//    //自评kpi
-//    @Update("update kpiscore set ")
+    //自评kpi
+    @Update("update kpiscore set ${letter}=#{score} where id=#{id}")
+    public Integer updateScore(String letter, String score,Integer id);
 }
