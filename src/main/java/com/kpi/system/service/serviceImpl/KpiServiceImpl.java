@@ -204,6 +204,37 @@ public class KpiServiceImpl implements KpiService {
         }
     }
 
+    //通过名字查找id
+    @Override
+    public Integer getIdByName(String name) {
+        Integer id = kpiDao.findIdByName(name);
+        if (id == null) {
+            return null;
+        }else {
+            return id;
+        }
+    }
 
+    //通过名字查找phone
+    @Override
+    public String getPhoneByName(String name) {
+        String phone = kpiDao.findPhoneByName(name);
+        if (phone == null) {
+            return null;
+        }else {
+            return phone;
+        }
+    }
+
+    @Override
+    public Integer updateAudit(String name, Integer audit) {
+        Integer Audit = kpiDao.updateAudit(name, audit);
+        if (Audit == null) {
+            return null;
+        }else {
+            return Audit;
+        }
+
+    }
 
 }

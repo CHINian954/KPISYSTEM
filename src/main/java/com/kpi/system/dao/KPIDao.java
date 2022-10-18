@@ -78,4 +78,16 @@ public interface KPIDao {
     //查找反馈
     @Select("select name,petition,result from kpipetition where name=#{name}")
     public List<KPI> findReultByName(String name);
+
+    //通过名字查找id
+    @Select("select id from staffinfo where name=#{name}")
+    public Integer findIdByName(String name);
+
+    //用名字查找phone
+    @Select("select phone from staffinfo where name=#{name}")
+    public String findPhoneByName(String name);
+
+    //领导审核
+    @Update("update kpiscore set audit=#{audit} where name=#{name}")
+    public Integer updateAudit(String name, Integer audit);
 }

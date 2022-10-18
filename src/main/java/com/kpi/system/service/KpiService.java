@@ -39,4 +39,10 @@ public interface KpiService {
     public Integer updateKpi(String letter, String score, Integer id);
     //查找反馈
     public List<KPI> getResultByName(String name);
+    //通过name查找id
+    public Integer getIdByName(String name);
+    //通过名字查找phone
+    public String getPhoneByName(String name);
+    //通过名字修改audit
+    public Integer updateAudit(String name, Integer audit);
 }
