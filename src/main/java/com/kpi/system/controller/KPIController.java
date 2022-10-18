@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Api(tags = "kpi系统")
@@ -75,15 +76,16 @@ public class KPIController {
             jsonObject.put("msg", "获取成功");
             jsonObject.put("code", 200);
             jsonObject.put("score", list);
-            jsonObject.put("names",kpiindexs);
+            jsonObject.put("names", kpiindexs);
             jsonObject.put("name", name);
-            jsonObject.put("mark",mark);
+            jsonObject.put("mark", mark);
         } else {
             jsonObject.put("msg", "获取失败");
             jsonObject.put("code", 500);
         }
         return jsonObject;
     }
+
 
     @ApiOperation("员工申诉")
     @PostMapping("/sendAppeal")
@@ -102,5 +104,11 @@ public class KPIController {
         }
         return jsonObject;
     }
+
+//    @ApiOperation("上司指标库")
+//    @GetMapping("/indicatorBank")
+//    public Object indicatorBank (){
+//
+//    }
 
 }

@@ -18,16 +18,16 @@ public class KPI {
     private String kpi;
     private Integer number;
     private String petition;
-    private Integer A;
-    private Integer B;
-    private Integer C;
-    private Integer D;
-    private Integer E;
-    private Integer F;
-    private Integer G;
-    private Integer H;
-    private Integer I;
-    private Integer J;
+    private String A;
+    private String B;
+    private String C;
+    private String D;
+    private String E;
+    private String F;
+    private String G;
+    private String H;
+    private String I;
+    private String J;
 
     @Override
     public String toString() {
@@ -48,16 +48,16 @@ public class KPI {
                 ", kpi='" + kpi + '\'' +
                 ", number=" + number +
                 ", petition='" + petition + '\'' +
-                ", A=" + A +
-                ", B=" + B +
-                ", C=" + C +
-                ", D=" + D +
-                ", E=" + E +
-                ", F=" + F +
-                ", G=" + G +
-                ", H=" + H +
-                ", I=" + I +
-                ", J=" + J +
+                ", A='" + A + '\'' +
+                ", B='" + B + '\'' +
+                ", C='" + C + '\'' +
+                ", D='" + D + '\'' +
+                ", E='" + E + '\'' +
+                ", F='" + F + '\'' +
+                ", G='" + G + '\'' +
+                ", H='" + H + '\'' +
+                ", I='" + I + '\'' +
+                ", J='" + J + '\'' +
                 '}';
     }
 
@@ -189,83 +189,83 @@ public class KPI {
         this.petition = petition;
     }
 
-    public Integer getA() {
+    public String getA() {
         return A;
     }
 
-    public void setA(Integer a) {
+    public void setA(String a) {
         A = a;
     }
 
-    public Integer getB() {
+    public String getB() {
         return B;
     }
 
-    public void setB(Integer b) {
+    public void setB(String b) {
         B = b;
     }
 
-    public Integer getC() {
+    public String getC() {
         return C;
     }
 
-    public void setC(Integer c) {
+    public void setC(String c) {
         C = c;
     }
 
-    public Integer getD() {
+    public String getD() {
         return D;
     }
 
-    public void setD(Integer d) {
+    public void setD(String d) {
         D = d;
     }
 
-    public Integer getE() {
+    public String getE() {
         return E;
     }
 
-    public void setE(Integer e) {
+    public void setE(String e) {
         E = e;
     }
 
-    public Integer getF() {
+    public String getF() {
         return F;
     }
 
-    public void setF(Integer f) {
+    public void setF(String f) {
         F = f;
     }
 
-    public Integer getG() {
+    public String getG() {
         return G;
     }
 
-    public void setG(Integer g) {
+    public void setG(String g) {
         G = g;
     }
 
-    public Integer getH() {
+    public String getH() {
         return H;
     }
 
-    public void setH(Integer h) {
+    public void setH(String h) {
         H = h;
     }
 
-    public Integer getI() {
+    public String getI() {
         return I;
     }
 
-    public void setI(Integer i) {
+    public void setI(String i) {
         I = i;
     }
 
-    public Integer getJ() {
+    public String getJ() {
         return J;
     }
 
-    public void setJ(Integer j) {
+    public void setJ(String j) {
         J = j;
     }
 }

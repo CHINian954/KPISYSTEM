@@ -24,7 +24,7 @@ public interface KPIDao {
     public List<KPI> findUserByPhone(String phone);
 
     //查找kpi指标库
-    @Select("SELECT kpi from kpiindex ORDER BY number")
+    @Select("SELECT A,B,C,D,E,F,G,H,I,J from skpiscore where id=0")
     public List<KPI> findKpiAll();
 
     //通过phone查找id
@@ -51,5 +51,6 @@ public interface KPIDao {
     @Select("SELECT confirm from staffinfo where phone=#{phone}")
     public Integer findConfirmByphone(String phone);
 
-    //
+    //查找反馈结果
+
 }
