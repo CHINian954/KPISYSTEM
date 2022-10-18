@@ -127,4 +127,39 @@ public class KpiServiceImpl implements KpiService {
             return confirm;
         }
     }
+
+    //确认承诺
+    @Override
+    public Integer setCovenant(String phone, Integer convenant) {
+        Integer convenants = kpiDao.updateCovenant(phone, convenant);
+        if (convenants == null) {
+            return null;
+        }else {
+            return convenants;
+        }
+    }
+
+    //获取反馈
+    @Override
+    public List<KPI> getPetition(Integer id) {
+        List<KPI> kpis = kpiDao.findPetitionById(id);
+        if (kpis == null) {
+            return null;
+        }else {
+            return kpis;
+        }
+    }
+
+    //提交反馈
+    @Override
+    public Integer updateResult(String name, String result) {
+        Integer updateResult = kpiDao.updateResultByname(name, result);
+        if (updateResult == null) {
+            return null;
+        }else {
+            return updateResult;
+        }
+    }
+
+
 }

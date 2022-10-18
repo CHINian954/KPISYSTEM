@@ -24,6 +24,11 @@ public interface KpiService {
     //提交申诉
     public Integer updatePetition(Integer id, String petition);
     //查找确认
-    public  Integer getConfirm(String phone);
-
+    public Integer getConfirm(String phone);
+    //确认承诺
+    public Integer setCovenant(String phone,Integer convenant);
+    //查找申诉结果
+    public List<KPI> getPetition(Integer id);
+    //反馈申诉结果
+    public Integer updateResult(String name, String result);
 }

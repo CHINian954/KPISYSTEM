@@ -24,7 +24,7 @@ public interface KPIDao {
     public List<KPI> findUserByPhone(String phone);
 
     //查找kpi指标库
-    @Select("SELECT A,B,C,D,E,F,G,H,I,J from skpiscore where id=0")
+    @Select("SELECT A,B,C,D,E,F,G,H,I,J from skpiscore where id=1")
     public List<KPI> findKpiAll();
 
     //通过phone查找id
@@ -51,6 +51,17 @@ public interface KPIDao {
     @Select("SELECT confirm from staffinfo where phone=#{phone}")
     public Integer findConfirmByphone(String phone);
 
-    //查找反馈结果
+    //确认承诺
+    @Update("update staffinfo set covenant=#{covenant} where phone=#{phone}")
+    public Integer updateCovenant(String phone, Integer covenant);
+
+    //通过id获取申诉结果
+    @Select("select name,petition,result from kpipetition where id=#{id}")
+    public List<KPI> findPetitionById(Integer id);
+
+    //通过名字反馈申诉结果
+    @Update("update kpipetition set result=#{result} where name=#{name}")
+    public Integer updateResultByname(String name, String result);
+
 
 }
