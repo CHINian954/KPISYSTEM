@@ -108,6 +108,14 @@ public interface KPIDao {
     public Integer updateSScore(String letter, String score,Integer id);
 
     //获取员工名与确认标识
-    @Select("select name,confirm from staffinfo")
+    @Select("select name,sconfirm from staffinfo where root=1")
     public List<KPI> findNameConfirm();
+
+    //修改上司确认员工绩效标识
+    @Update("update staffinfo set sconfirm=#{sconfirm} where by name=#{name}")
+    public Integer updateSconfirm(String name , Integer sconfirm);
+
+    //建立指标库
+    @Update("update skpiscore set ${letter}=#{kpiindex} where id=1")
+    public Integer updateKpiindex(String letter , String kpiindex);
 }

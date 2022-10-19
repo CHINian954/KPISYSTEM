@@ -290,4 +290,24 @@ public class KpiServiceImpl implements KpiService {
             return reult;
         }
     }
+
+    @Override
+    public Integer updateSconfirm(String name, Integer sconfirm) {
+        Integer result = kpiDao.updateSconfirm(name, sconfirm);
+        if (result == null) {
+            return null;
+        }else {
+            return result;
+        }
+    }
+
+    @Override
+    public Integer updateKpiindex(String letter, String kpiindex) {
+        Integer result = kpiDao.updateKpiindex(letter, kpiindex);
+        if (result == null) {
+            return null;
+        }else {
+            return result;
+        }
+    }
 }

@@ -55,4 +55,8 @@ public interface KpiService {
     public Integer updateSkpi(String letter, String score, Integer id);
     //获取员工名字与确认标识
     public List<KPI> getNameConfirm();
+    //修改上司确认标识
+    public Integer updateSconfirm(String name , Integer sconfirm);
+    //修改kpi指标库
+    public Integer updateKpiindex(String letter , String kpiindex);
 }

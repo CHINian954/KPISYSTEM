@@ -425,8 +425,10 @@ public class KPIController {
     @GetMapping("/getPerformance")
     public Object getPerformance() {
         List<KPI> result = kpiService.getNameConfirm();
+        List<KPI> results = kpiService.showKpiindex();
         JSONObject jsonObject = new JSONObject();
         JSONArray list = JSONObject.parseArray(JSON.toJSONString(result));
+        JSONArray lists = JSONObject.parseArray(JSON.toJSONString(results));
         if (result == null) {
             jsonObject.put("msg", "获取失败");
             jsonObject.put("code", 500);
@@ -434,7 +436,65 @@ public class KPIController {
             jsonObject.put("msg", "获取成功");
             jsonObject.put("code", 200);
             jsonObject.put("data", list);
+            jsonObject.put("kpi",lists);
         }
         return jsonObject;
     }
+
+    @ApiOperation("上司确认员工绩效")
+    @PostMapping("/updatePerformance")
+    public Object updatePerformance(String name, Integer mark){
+        Integer result = kpiService.updateSconfirm(name,mark);
+        JSONObject jsonObject = new JSONObject();
+        if (result == null) {
+            jsonObject.put("msg", "获取失败");
+            jsonObject.put("code", 500);
+        } else {
+            jsonObject.put("msg", "获取成功");
+            jsonObject.put("code", 200);
+            jsonObject.put("data", result);
+        }
+        return jsonObject;
+    }
+
+
+    @ApiOperation("修改指标库")
+    @GetMapping("/indicatorsLibrary")
+    public Object indicatorsLibrary(Integer id,String kpiindex) {
+        String letter = null;
+        if (id == 1) {
+            letter = "A";
+        } else if (id == 2) {
+            letter = "B";
+        } else if (id == 3) {
+            letter = "C";
+        } else if (id == 4) {
+            letter = "D";
+        } else if (id == 5) {
+            letter = "E";
+        } else if (id == 6) {
+            letter = "F";
+        } else if (id == 7) {
+            letter = "G";
+        } else if (id == 8) {
+            letter = "H";
+        } else if (id == 9) {
+            letter = "I";
+        } else {
+            letter = "J";
+        }
+        Integer results = kpiService.updateKpiindex(letter,kpiindex);
+        JSONObject jsonObject = new JSONObject();
+        if (results == 0) {
+            jsonObject.put("msg", "获取失败");
+            jsonObject.put("code", 500);
+            jsonObject.put("data", results);
+        } else {
+            jsonObject.put("msg", "获取成功");
+            jsonObject.put("code", 200);
+            jsonObject.put("data", results);
+        }
+        return jsonObject;
+    }
+
 }
