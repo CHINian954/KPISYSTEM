@@ -61,4 +61,8 @@ public interface KpiService {
     public Integer updateKpiindex(String letter , String kpiindex);
 
     public List<KPI> getCommitresult(String name);
+
+    public Integer getAudit(Integer id);
+
+    public Integer getCovenant(String phone);
 }

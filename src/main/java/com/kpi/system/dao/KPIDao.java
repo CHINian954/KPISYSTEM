@@ -121,4 +121,12 @@ public interface KPIDao {
 
     @Select("select petition,result from kpipetition where commit=1 and name=#{name}")
     public List<KPI> findCommitresult(String name);
+
+    @Select("select audit from skpiscore where id=#{id}")
+    public Integer findAudit(Integer id);
+
+    @Select("select covenant from staffinfo where phone=#{phone}")
+    public Integer findCovenant(String phone);
+
+
 }

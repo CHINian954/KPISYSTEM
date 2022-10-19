@@ -320,4 +320,24 @@ public class KpiServiceImpl implements KpiService {
             return result;
         }
     }
+
+    @Override
+    public Integer getAudit(Integer id) {
+        Integer result = kpiDao.findAudit(id);
+        if (result == null) {
+            return null;
+        }else {
+            return result;
+        }
+    }
+
+    @Override
+    public Integer getCovenant(String phone) {
+        Integer result = kpiDao.findCovenant(phone);
+        if (result == null) {
+            return null;
+        }else {
+            return result;
+        }
+    }
 }

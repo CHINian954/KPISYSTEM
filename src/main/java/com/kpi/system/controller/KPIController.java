@@ -249,10 +249,9 @@ public class KPIController {
     @GetMapping("/searchStaff")
     public Object searchStaff(String name) {
         Integer id = kpiService.getIdByName(name);
-        String phone = kpiService.getPhoneByName(name);
         List<KPI> result = kpiService.showKpi(id);
         List<KPI> kpiindex = kpiService.showKpiindex();
-        Integer mark = kpiService.getConfirm(phone);
+        Integer mark = kpiService.getAudit(id);
         JSONObject jsonObject = new JSONObject();
         JSONArray list = JSONObject.parseArray(JSON.toJSONString(result));
         JSONArray kpiindexs = JSONObject.parseArray(JSON.toJSONString(kpiindex));
@@ -342,7 +341,8 @@ public class KPIController {
 
     @ApiOperation("获取承诺书")
     @GetMapping("/getCommitment")
-    public Object getCommitment() {
+    public Object getCommitment(String phone) {
+        Integer covenant = kpiService.getCovenant(phone);
         String result = kpiService.getCovenant();
         JSONObject jsonObject = new JSONObject();
         if (result == null) {
@@ -352,6 +352,7 @@ public class KPIController {
             jsonObject.put("msg", "获取成功");
             jsonObject.put("code", 200);
             jsonObject.put("data", result);
+            jsonObject.put("mark",covenant);
         }
         return jsonObject;
     }
