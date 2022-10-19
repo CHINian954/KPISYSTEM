@@ -112,10 +112,13 @@ public interface KPIDao {
     public List<KPI> findNameConfirm();
 
     //修改上司确认员工绩效标识
-    @Update("update staffinfo set sconfirm=#{sconfirm} where by name=#{name}")
+    @Update("update staffinfo set sconfirm=#{sconfirm} where name=#{name}")
     public Integer updateSconfirm(String name , Integer sconfirm);
 
     //建立指标库
     @Update("update skpiscore set ${letter}=#{kpiindex} where id=1")
     public Integer updateKpiindex(String letter , String kpiindex);
+
+    @Select("select petition,result from kpipetition where commit=1 and name=#{name}")
+    public List<KPI> findCommitresult(String name);
 }

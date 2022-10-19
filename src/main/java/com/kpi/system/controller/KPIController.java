@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Api(tags = "kpi系统")
@@ -21,7 +20,6 @@ import java.util.List;
 public class KPIController {
     @Autowired
     KpiService kpiService;
-//18829098761
 
     @ApiOperation("登录并获取权限")
     @PostMapping("/login")
@@ -50,7 +48,7 @@ public class KPIController {
         List<KPI> kpis = kpiService.showUser(phone);
         JSONObject jsonObject = new JSONObject();
         JSONArray list = JSONObject.parseArray(JSON.toJSONString(kpis));
-        if (kpis == null) {
+        if (kpis.isEmpty()) {
             jsonObject.put("msg", "获取失败");
             jsonObject.put("code", 500);
         } else {
@@ -72,16 +70,16 @@ public class KPIController {
         JSONObject jsonObject = new JSONObject();
         JSONArray list = JSONObject.parseArray(JSON.toJSONString(kpis));
         JSONArray kpiindexs = JSONObject.parseArray(JSON.toJSONString(kpiindex));
-        if (kpis != null && id != null && name != null) {
+        if (kpis.isEmpty() || id.equals(0) || name.isEmpty()) {
+            jsonObject.put("msg", "获取失败");
+            jsonObject.put("code", 500);
+        } else {
             jsonObject.put("msg", "获取成功");
             jsonObject.put("code", 200);
             jsonObject.put("score", list);
             jsonObject.put("names", kpiindexs);
             jsonObject.put("name", name);
             jsonObject.put("mark", mark);
-        } else {
-            jsonObject.put("msg", "获取失败");
-            jsonObject.put("code", 500);
         }
         return jsonObject;
     }
@@ -128,7 +126,7 @@ public class KPIController {
         List<KPI> complain = kpiService.getPetition(id);
         JSONObject jsonObject = new JSONObject();
         JSONArray list = JSONObject.parseArray(JSON.toJSONString(complain));
-        if (complain == null) {
+        if (complain.isEmpty()) {
             jsonObject.put("msg", "获取失败");
             jsonObject.put("code", 500);
         } else {
@@ -236,7 +234,7 @@ public class KPIController {
         List<KPI> result = kpiService.getResultByName(name);
         JSONObject jsonObject = new JSONObject();
         JSONArray list = JSONObject.parseArray(JSON.toJSONString(result));
-        if (result == null) {
+        if (result.isEmpty()) {
             jsonObject.put("msg", "获取失败");
             jsonObject.put("code", 500);
         } else {
@@ -258,7 +256,7 @@ public class KPIController {
         JSONObject jsonObject = new JSONObject();
         JSONArray list = JSONObject.parseArray(JSON.toJSONString(result));
         JSONArray kpiindexs = JSONObject.parseArray(JSON.toJSONString(kpiindex));
-        if (result == null) {
+        if (result.isEmpty()) {
             jsonObject.put("msg", "获取失败");
             jsonObject.put("code", 500);
         } else {
@@ -295,7 +293,7 @@ public class KPIController {
         List<KPI> result = kpiService.showKpiindex();
         JSONObject jsonObject = new JSONObject();
         JSONArray list = JSONObject.parseArray(JSON.toJSONString(result));
-        if (result == null) {
+        if (result.isEmpty()) {
             jsonObject.put("msg", "获取失败");
             jsonObject.put("code", 500);
         } else {
@@ -368,7 +366,7 @@ public class KPIController {
         JSONObject jsonObject = new JSONObject();
         JSONArray list = JSONObject.parseArray(JSON.toJSONString(kpiindex));
         JSONArray lists = JSONObject.parseArray(JSON.toJSONString(kpis));
-        if (kpis == null || kpiindex == null) {
+        if (kpis.isEmpty()|| kpiindex.isEmpty()) {
             jsonObject.put("msg", "获取失败");
             jsonObject.put("code", 500);
         } else {
@@ -429,7 +427,7 @@ public class KPIController {
         JSONObject jsonObject = new JSONObject();
         JSONArray list = JSONObject.parseArray(JSON.toJSONString(result));
         JSONArray lists = JSONObject.parseArray(JSON.toJSONString(results));
-        if (result == null) {
+        if (result.isEmpty()) {
             jsonObject.put("msg", "获取失败");
             jsonObject.put("code", 500);
         } else {
@@ -446,9 +444,10 @@ public class KPIController {
     public Object updatePerformance(String name, Integer mark){
         Integer result = kpiService.updateSconfirm(name,mark);
         JSONObject jsonObject = new JSONObject();
-        if (result == null) {
+        if (result == 0) {
             jsonObject.put("msg", "获取失败");
             jsonObject.put("code", 500);
+            jsonObject.put("data", result);
         } else {
             jsonObject.put("msg", "获取成功");
             jsonObject.put("code", 200);
@@ -459,7 +458,7 @@ public class KPIController {
 
 
     @ApiOperation("修改指标库")
-    @GetMapping("/indicatorsLibrary")
+    @PostMapping ("/indicatorsLibrary")
     public Object indicatorsLibrary(Integer id,String kpiindex) {
         String letter = null;
         if (id == 1) {
@@ -503,13 +502,31 @@ public class KPIController {
         List<KPI> result = kpiService.showKpiindex();
         JSONObject jsonObject = new JSONObject();
         JSONArray list = JSONObject.parseArray(JSON.toJSONString(result));
-        if (result == null) {
+        if (result.isEmpty()) {
             jsonObject.put("msg", "获取失败");
             jsonObject.put("code", 500);
         } else {
             jsonObject.put("msg", "获取成功");
             jsonObject.put("code", 200);
             jsonObject.put("data", list);
+        }
+        return jsonObject;
+    }
+
+    @ApiOperation("上司查询申诉")
+    @GetMapping("/searchComplain")
+    public Object searchComplain(String name){
+        List<KPI> result = kpiService.getCommitresult(name);
+        JSONObject jsonObject = new JSONObject();
+        JSONArray list = JSONObject.parseArray(JSON.toJSONString(result));
+        if (result.isEmpty()) {
+            jsonObject.put("msg", "获取失败");
+            jsonObject.put("code", 500);
+        } else {
+            jsonObject.put("msg", "获取成功");
+            jsonObject.put("code", 200);
+            jsonObject.put("data", list);
+            jsonObject.put("name", name);
         }
         return jsonObject;
     }

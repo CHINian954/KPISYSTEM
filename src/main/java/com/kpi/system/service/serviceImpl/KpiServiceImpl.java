@@ -310,4 +310,14 @@ public class KpiServiceImpl implements KpiService {
             return result;
         }
     }
+
+    @Override
+    public List<KPI> getCommitresult(String name) {
+        List<KPI> result = kpiDao.findCommitresult(name);
+        if (result == null) {
+            return null;
+        }else {
+            return result;
+        }
+    }
 }

@@ -59,4 +59,6 @@ public interface KpiService {
     public Integer updateSconfirm(String name , Integer sconfirm);
     //修改kpi指标库
     public Integer updateKpiindex(String letter , String kpiindex);
+
+    public List<KPI> getCommitresult(String name);
 }
