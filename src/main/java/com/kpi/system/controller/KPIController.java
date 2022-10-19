@@ -497,4 +497,20 @@ public class KPIController {
         return jsonObject;
     }
 
+    @ApiOperation("指标库显示")
+    @GetMapping("/indicatorsShow")
+    public Object getIndicatorsShow(){
+        List<KPI> result = kpiService.showKpiindex();
+        JSONObject jsonObject = new JSONObject();
+        JSONArray list = JSONObject.parseArray(JSON.toJSONString(result));
+        if (result == null) {
+            jsonObject.put("msg", "获取失败");
+            jsonObject.put("code", 500);
+        } else {
+            jsonObject.put("msg", "获取成功");
+            jsonObject.put("code", 200);
+            jsonObject.put("data", list);
+        }
+        return jsonObject;
+    }
 }
