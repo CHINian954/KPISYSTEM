@@ -36,7 +36,7 @@ public interface KPIDao {
     public List<KPI> findSkpiById(Integer id);
 
     //通过id查找员工kpi
-    @Select("SELECT A,B,C,D,E,F,G,H,I,J FROM kpiscore WHERE id=#{id}")
+    @Select("SELECT A,B,C,D,E,F,G,H,I,J FROM skpiscore WHERE id=#{id}")
     public List<KPI> findKpiById(Integer id);
 
     //通过号码查找名字
@@ -72,7 +72,7 @@ public interface KPIDao {
     public Integer updateConfirmByname(String name, Integer confirm);
 
     //自评kpi
-    @Update("update kpiscore set ${letter}=#{score} where id=#{id}")
+    @Update("update skpiscore set ${letter}=#{score} where id=#{id}")
     public Integer updateScore(String letter, String score,Integer id);
 
     //查找反馈
@@ -88,7 +88,7 @@ public interface KPIDao {
     public String findPhoneByName(String name);
 
     //领导审核
-    @Update("update kpiscore set audit=#{audit} where id=#{id}")
+    @Update("update skpiscore set audit=#{audit} where id=#{id}")
     public Integer updateAudit(Integer id, Integer audit);
 
     //上司修改承诺书

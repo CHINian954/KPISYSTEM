@@ -20,6 +20,7 @@ public class KPI {
     private String petition;
     private String result;
     private String commit;
+    private Integer sconfirm;
     private String A;
     private String B;
     private String C;
@@ -28,6 +29,15 @@ public class KPI {
     private String F;
     private String G;
     private String H;
+
+    public Integer getSconfirm() {
+        return sconfirm;
+    }
+
+    public void setSconfirm(Integer sconfirm) {
+        this.sconfirm = sconfirm;
+    }
+
     private String I;
     private String J;
 
