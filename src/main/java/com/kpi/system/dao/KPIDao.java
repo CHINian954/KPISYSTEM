@@ -88,6 +88,18 @@ public interface KPIDao {
     public String findPhoneByName(String name);
 
     //领导审核
-    @Update("update kpiscore set audit=#{audit} where name=#{name}")
-    public Integer updateAudit(String name, Integer audit);
+    @Update("update kpiscore set audit=#{audit} where id=#{id}")
+    public Integer updateAudit(Integer id, Integer audit);
+
+    //上司修改承诺书
+    @Update("update kpicovenant set covenants=#{covenants}")
+    public Integer updateCovenants(String covenants);
+
+    //员工确认承诺书
+    @Update("update staffinfo set covenant=#{covenant} where phone=#{phone}")
+    public Integer updateCovenantByPhone(String phone, Integer covenant);
+
+    //获取承诺书
+    @Select("select covenants from kpicovenant")
+    public String findCovenants();
 }

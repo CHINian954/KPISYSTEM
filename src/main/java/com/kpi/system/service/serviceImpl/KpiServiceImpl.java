@@ -226,9 +226,10 @@ public class KpiServiceImpl implements KpiService {
         }
     }
 
+    //领导审核
     @Override
-    public Integer updateAudit(String name, Integer audit) {
-        Integer Audit = kpiDao.updateAudit(name, audit);
+    public Integer updateAudit(Integer id, Integer audit) {
+        Integer Audit = kpiDao.updateAudit(id, audit);
         if (Audit == null) {
             return null;
         }else {
@@ -237,4 +238,35 @@ public class KpiServiceImpl implements KpiService {
 
     }
 
+    //修改承诺书
+    @Override
+    public Integer updateCovenants(String covenants) {
+        Integer result = kpiDao.updateCovenants(covenants);
+        if (result == null) {
+            return null;
+        }else {
+            return result;
+        }
+    }
+
+    //确认承诺
+    @Override
+    public Integer updateCovenant(String phone, Integer covenant) {
+        Integer result = kpiDao.updateCovenant(phone,covenant);
+        if (result == null) {
+            return null;
+        }else {
+            return result;
+        }
+    }
+
+    @Override
+    public String getCovenant() {
+        String result = kpiDao.findCovenants();
+        if (result == null) {
+            return null;
+        }else {
+            return result;
+        }
+    }
 }

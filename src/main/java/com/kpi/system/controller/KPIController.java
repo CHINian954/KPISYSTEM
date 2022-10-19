@@ -274,7 +274,8 @@ public class KPIController {
     @ApiOperation("领导审核")
     @PostMapping("/leadCheck")
     public Object leadCheck(String name, Integer mark) {
-        Integer results = kpiService.updateAudit(name, mark);
+        Integer id = kpiService.getIdByName(name);
+        Integer results = kpiService.updateAudit(id, mark);
         JSONObject jsonObject = new JSONObject();
         if (results == 0) {
             jsonObject.put("msg", "获取失败");
@@ -301,6 +302,80 @@ public class KPIController {
             jsonObject.put("msg", "获取成功");
             jsonObject.put("code", 200);
             jsonObject.put("kpi", list);
+            jsonObject.put("name",name);
+        }
+        return jsonObject;
+    }
+
+    @ApiOperation("上司修改承诺书")
+    @PostMapping("/changeCommitment")
+    public Object changeCommitment(String commitment) {
+        Integer results = kpiService.updateCovenants(commitment);
+        JSONObject jsonObject = new JSONObject();
+        if (results == 0) {
+            jsonObject.put("msg", "获取失败");
+            jsonObject.put("code", 500);
+            jsonObject.put("data", results);
+        } else {
+            jsonObject.put("msg", "获取成功");
+            jsonObject.put("code", 200);
+            jsonObject.put("data", results);
+        }
+        return jsonObject;
+    }
+
+    @ApiOperation("员工确认承诺")
+    @GetMapping("/searchCommitment")
+    public Object searchCommitment(String phone, Integer covenant) {
+        Integer results = kpiService.updateCovenant(phone,covenant);
+        JSONObject jsonObject = new JSONObject();
+        if (results == 0) {
+            jsonObject.put("msg", "获取失败");
+            jsonObject.put("code", 500);
+            jsonObject.put("data", results);
+        } else {
+            jsonObject.put("msg", "获取成功");
+            jsonObject.put("code", 200);
+            jsonObject.put("data", results);
+        }
+        return jsonObject;
+    }
+
+
+    @ApiOperation("获取承诺书")
+    @GetMapping("/getCommitment")
+    public Object getCommitment() {
+        String result = kpiService.getCovenant();
+        JSONObject jsonObject = new JSONObject();
+        if (result == null) {
+            jsonObject.put("msg", "获取失败");
+            jsonObject.put("code", 500);
+        } else {
+            jsonObject.put("msg", "获取成功");
+            jsonObject.put("code", 200);
+            jsonObject.put("data", result);
+        }
+        return jsonObject;
+    }
+
+
+    @ApiOperation("上司获取员工绩效与分数")
+    @GetMapping("/getScroe")
+    public Object getScroe(String name) {
+        Integer id = kpiService.getIdByName(name);
+        List<KPI> kpiindex = kpiService.showKpiindex();
+        List<KPI> kpis = kpiService.showSkpi(id);
+        JSONObject jsonObject = new JSONObject();
+        JSONArray list = JSONObject.parseArray(JSON.toJSONString(kpiindex));
+        JSONArray lists = JSONObject.parseArray(JSON.toJSONString(kpis));
+        if (kpis == null || kpiindex == null) {
+            jsonObject.put("msg", "获取失败");
+            jsonObject.put("code", 500);
+        } else {
+            jsonObject.put("msg", "获取成功");
+            jsonObject.put("code", 200);
+            jsonObject.put("kpi", list);
+            jsonObject.put("score",lists);
             jsonObject.put("name",name);
         }
         return jsonObject;

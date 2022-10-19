@@ -44,5 +44,11 @@ public interface KpiService {
     //通过名字查找phone
     public String getPhoneByName(String name);
     //通过名字修改audit
-    public Integer updateAudit(String name, Integer audit);
+    public Integer updateAudit(Integer id, Integer audit);
+    //修改承诺书
+    public Integer updateCovenants(String covenants);
+    //确认承诺
+    public Integer updateCovenant(String phone , Integer covenant);
+    //获取承诺书
+    public String getCovenant();
 }
