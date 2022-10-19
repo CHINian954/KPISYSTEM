@@ -380,4 +380,61 @@ public class KPIController {
         }
         return jsonObject;
     }
+
+    @ApiOperation("上司修改kpi")
+    @PostMapping("/changeScore")
+    public Object changeScore(String name, String score, Integer id) {
+        Integer staffid = kpiService.getIdByName(name);
+        String letter = null;
+        if (id == 1) {
+            letter = "A";
+        } else if (id == 2) {
+            letter = "B";
+        } else if (id == 3) {
+            letter = "C";
+        } else if (id == 4) {
+            letter = "D";
+        } else if (id == 5) {
+            letter = "E";
+        } else if (id == 6) {
+            letter = "F";
+        } else if (id == 7) {
+            letter = "G";
+        } else if (id == 8) {
+            letter = "H";
+        } else if (id == 9) {
+            letter = "I";
+        } else {
+            letter = "J";
+        }
+        Integer results = kpiService.updateKpi(letter, score, staffid);
+        JSONObject jsonObject = new JSONObject();
+        if (results == 0) {
+            jsonObject.put("msg", "获取失败");
+            jsonObject.put("code", 500);
+            jsonObject.put("data", results);
+        } else {
+            jsonObject.put("msg", "获取成功");
+            jsonObject.put("code", 200);
+            jsonObject.put("data", results);
+        }
+        return jsonObject;
+    }
+
+    @ApiOperation("查看员工是否确认绩效")
+    @GetMapping("/getPerformance")
+    public Object getPerformance() {
+        List<KPI> result = kpiService.getNameConfirm();
+        JSONObject jsonObject = new JSONObject();
+        JSONArray list = JSONObject.parseArray(JSON.toJSONString(result));
+        if (result == null) {
+            jsonObject.put("msg", "获取失败");
+            jsonObject.put("code", 500);
+        } else {
+            jsonObject.put("msg", "获取成功");
+            jsonObject.put("code", 200);
+            jsonObject.put("data", list);
+        }
+        return jsonObject;
+    }
 }

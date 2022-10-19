@@ -51,4 +51,8 @@ public interface KpiService {
     public Integer updateCovenant(String phone , Integer covenant);
     //获取承诺书
     public String getCovenant();
+    //修改员工kpi
+    public Integer updateSkpi(String letter, String score, Integer id);
+    //获取员工名字与确认标识
+    public List<KPI> getNameConfirm();
 }

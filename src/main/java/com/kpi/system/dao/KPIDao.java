@@ -102,4 +102,12 @@ public interface KPIDao {
     //获取承诺书
     @Select("select covenants from kpicovenant")
     public String findCovenants();
+
+    //修改上司评分
+    @Update("update skpiscore set ${letter}=#{score} where id=#{id}")
+    public Integer updateSScore(String letter, String score,Integer id);
+
+    //获取员工名与确认标识
+    @Select("select name,confirm from staffinfo")
+    public List<KPI> findNameConfirm();
 }

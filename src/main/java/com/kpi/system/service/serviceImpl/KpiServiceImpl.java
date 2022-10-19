@@ -260,6 +260,7 @@ public class KpiServiceImpl implements KpiService {
         }
     }
 
+    //获取承诺书
     @Override
     public String getCovenant() {
         String result = kpiDao.findCovenants();
@@ -267,6 +268,26 @@ public class KpiServiceImpl implements KpiService {
             return null;
         }else {
             return result;
+        }
+    }
+
+    @Override
+    public Integer updateSkpi(String letter, String score, Integer id) {
+        Integer updateKpi = kpiDao.updateSScore(letter,score,id);
+        if (updateKpi == null) {
+            return null;
+        }else {
+            return updateKpi;
+        }
+    }
+
+    @Override
+    public List<KPI> getNameConfirm() {
+        List<KPI> reult = kpiDao.findNameConfirm();
+        if (reult == null) {
+            return null;
+        }else {
+            return reult;
         }
     }
 }
